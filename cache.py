@@ -32,7 +32,7 @@ class CacheMemory:
             if cacheBlock is not None: 
                 cacheBlock.update( data, self.iteration )
                 self.accessLog.append(1)
-                # print( f"Iteration[{self.iteration}]: CacheBlock Hit at Block {self.iteration%self.numBlocks} of Ctr {cacheBlock.getCtr()} and Data {data}" )
+                print( f"Iteration[{self.iteration}]: CacheBlock Hit at Block {self.iteration%self.numBlocks} of Ctr {cacheBlock.getCtr()} and Data {data}" )
             else:
                 cacheBlock = self.findEmptyCacheBlock()
 
@@ -40,14 +40,14 @@ class CacheMemory:
                 if cacheBlock is not None:
                     cacheBlock.update( data, self.iteration )
                     self.accessLog.append(0)
-                    # print( f"Iteration[{self.iteration}]: CacheMiss (Empty) at Block {self.iteration%self.numBlocks} of Ctr {cacheBlock.getCtr()} and Data {data}" )
+                    print( f"Iteration[{self.iteration}]: CacheMiss (Empty) at Block {self.iteration%self.numBlocks} of Ctr {cacheBlock.getCtr()} and Data {data}" )
 
                 # 3. LRU replacement 
                 else:
                     cacheBlock = self.findLRUCacheBlock()
                     cacheBlock.update( data, self.iteration )
                     self.accessLog.append(0)
-                    # print( f"Iteration[{self.iteration}]: CacheMiss (LRU) at Block {self.iteration%self.numBlocks} of Ctr {cacheBlock.getCtr()} and Data {data} " )
+                    print( f"Iteration[{self.iteration}]: CacheMiss (LRU) at Block {self.iteration%self.numBlocks} of Ctr {cacheBlock.getCtr()} and Data {data} " )
 
             self.iteration += 1
 
@@ -83,9 +83,9 @@ class CacheMemory:
             data = cacheBlock.getData()
             print(f"Block {i}: {data}")
 
-num = 8    
+num = 16   
 sequence = Sequence(num)
-list = sequence.initSequence(2) 
+list = sequence.initSequence(1) 
 print( f"Sequence Length = {len(list)}" ) 
 print( f"Sequence List:\n{list}" ) 
 
