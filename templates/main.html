@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <title> CSARCH2 </title>
+    <meta name = "viewport" content= "width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href= "{{ url_for('static', filename='main.css')}}">
+</head>
+<body>
+    <div class = "main-container"> 
+        <div class = "left-section"> 
+            <div class = "title">
+                <label class = "title"> Cache Simulator </label>
+            </div>
+            <div class = "menu"> 
+                <div class = "menu-button">
+                    <input type = "number" id = "memory-blocks-input" min = "1" placeholder = "enter number of memory blocks">
+                </div>
+                <div class = "menu-button">
+                    <select id = "test-case-input">
+                        <option value = "0" selected> sequential </option>
+                        <option value = "1"> random </option>
+                        <option value = "2"> mid-repeat </option>
+                    </select>
+                </div>
+                <div class = "menu-button">
+                    <span> start simulation </span>
+                </div>
+                <div class = "menu-button">
+                    <span> play animation </span>
+                </div>
+            </div>
+        </div>
+        <div class = "mid-section"> 
+            <div class = "title">
+                <label class = "title"> Cache Memory </label>
+            </div>
+            <div class = "cache-memory"> 
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                        </tr>
+                        <tr>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                        </tr>
+                        <tr>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br><br>
+            <div class = "title">
+                <label class = "title"> Cache Output </label>
+            </div>
+            <div class = "cache-output">
+                <label class = "output"> 
+                    memory access count: 
+                    <label id = "memory-access-count"> </label> 
+                </label>
+                <label class = "output"> 
+                    cache hit count: 
+                    <label id = "cache-hit-count"> </label> 
+                </label>
+                <label class = "output"> 
+                    cache miss count: 
+                    <label id = "cache-miss-count"> </label> 
+                </label>
+                <label class = "output"> 
+                    cache hit rate: 
+                    <label id = "cache-hit-rate"> </label> 
+                </label>
+                <label class = "output"> 
+                    cache miss rate: 
+                    <label id = "cache-miss-rate"> </label> 
+                </label>
+                <label class = "output"> 
+                    average memory access time:
+                    <label id = "average-access-time"> </label> 
+                </label>
+                <label class = "output"> 
+                    total memory access time:
+                    <label id = "total-access-time"> </label> 
+                </label>
+            </div>
+        </div>
+        <!--
+            <div class = "right-section"> 
+                <h1> Access Log </h1>
+            </div
+        -->
+    </div>
+</body>
+</html>
