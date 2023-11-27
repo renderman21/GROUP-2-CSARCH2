@@ -83,12 +83,12 @@ class CacheMemory:
             data = cacheBlock.getData()
             print(f"Block {i}: {data}")
 
-num = 8   
-sequence = Sequence(num)
-list = sequence.initSequence(2) 
-print( f"Sequence Length = {len(list)}" ) 
-print( f"Sequence List:\n{list}" ) 
+# num = 8   
+# sequence = Sequence(num)
+# list = sequence.initSequence(2) 
+# print( f"Sequence Length = {len(list)}" ) 
+# print( f"Sequence List:\n{list}" ) 
 
-cacheMemory = CacheMemory(32)
-cacheMemory.accessMemory(list)
-cacheMemory.displayFinalSnapshot()
+# cacheMemory = CacheMemory(32)
+# cacheMemory.accessMemory(list)
+# cacheMemory.displayFinalSnapshot()
