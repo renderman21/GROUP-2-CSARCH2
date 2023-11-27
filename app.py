@@ -1,41 +1,93 @@
+from flask import Flask, render_template, jsonify, request
+from python.sequence import Sequence
+from python.cache import CacheMemory, CacheBlock
+
 '''
     Setting Up Flask:
-    1.) python -m venv venv
-    2.) .\venv\Scripts\activate
+        python -m venv venv
+        .\venv\Scripts\activate
 
     For VSC:
-    3.) ctrl + shift + p pick "Choose Interpreter"
-    4.) pick one with .\venv
+        ctrl + shift + p pick "Choose Interpreter"
+        pick one with .\venv
 
     Terminal:
-    5.) python -m pip install --upgrade pip
-    6.) python -m pip install flask
+        python -m pip install --upgrade pip
+        python -m pip install flask
 
     Run:
-    7.) flask --app app.py --debug run
+        flask --app app.py --debug run
 '''
 
-# Terminal: python -m flask --app .\app.py run 
-from flask import Flask, render_template
 app = Flask(__name__)
 
-posts = [
-    {
-        'author': 'Choi',
-        'title': 'CSARCH2',
-        'content': 'MCO2' 
-    },
-    {
-        'author': 'Choi',
-        'title': 'CSARCH2',
-        'content': 'MCO2' 
-    }   
-]
-
+# Main page
 @app.route("/")
 def home():
     return render_template('main.html')
 
+# Cache Simulation
+@app.route('/simulation', methods=['POST'])
+def simulate():    
+    try:
+        # Parse number of memory blocks and test case
+        data = request.get_json()
+        numBlocks = data['numBlocks']
+        testCase = data['testCase']
+        
+        # Generate sequence
+        sequence = Sequence(numBlocks)
+        list = sequence.initSequence(testCase)
+
+        # Generate cache memory 
+        cacheSize = 32
+        cacheMemory = CacheMemory(cacheSize)
+
+        # Start simulation
+        cacheMemory.accessMemory(list)
+
+        # For cache memory simulation details
+        memoryAccessCount = cacheMemory.iteration
+        cacheHitCount = cacheMemory.getCacheHitCount()
+        cacheMissCount = cacheMemory.getCacheMissCount()
+        cacheHitRate = cacheMemory.getCacheHitRate()
+        cacheMissRate = cacheMemory.getCacheHitRate()
+        # averageMAT =
+        # totalMAT = 
+
+        # For cache memory retracing
+        cacheAccessLog = cacheMemory.cacheAccessLog
+        finalSnapshot = cacheMemory.getFinalSnapshot()
+
+        # For cache memory text log
+        cacheTextLog = cacheMemory.cacheTextLog
+        cacheTagLog = cacheMemory.cacheTagLog
+
+        cacheDetails = [
+            memoryAccessCount,
+            cacheHitCount,
+            cacheMissCount,
+            cacheHitRate,
+            cacheMissRate,
+        ]
+
+        # Convert cacheAccessLog, finalSnapshot, cacheTextLog to JSON
+        jsonAccessLog = [{ "number": log.number, "data": log.data } for log in cacheAccessLog ]
+        jsonSnapshot = [{ "number": log.number, "data": log.data} for log in finalSnapshot ]
+        jsonTextLog = [{ "textLog": log } for log in cacheTextLog ]
+
+        response = {
+            "sequence": list,
+            "cacheDetails": cacheDetails,
+            "cacheAccessLog": jsonAccessLog,
+            "finalSnapshot": jsonSnapshot,
+            "cacheTextLog": jsonTextLog,
+            "cacheTagLog": cacheTagLog
+        }
+
+        return jsonify(response), 200
+    except (KeyError, ValueError) as e:
+        return jsonify({ "error": f"Invalid input data; {str(e)}"}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,8 +2,9 @@
 <html lang = "en">
 <head>
     <title> CSARCH2 </title>
-    <meta name = "viewport" content= "width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href= "{{ url_for('static', filename='main.css')}}">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='main.css')}}">
+    <script src = "{{ url_for('static', filename='main.js')}}" defer> </script>
 </head>
 <body>
     <div class = "main-container"> 
@@ -22,69 +23,43 @@
                         <option value = "2"> mid-repeat </option>
                     </select>
                 </div>
-                <div class = "menu-button">
-                    <span> start simulation </span>
+                <div class = "menu-button no-padding">
+                    <button id = "start-simulation"> start simulation </button>
                 </div>
-                <div class = "menu-button">
-                    <span> play animation </span>
+                <div class = "menu-button no-padding">
+                    <button id = "play-traceback" disabled> play traceback </button>
+                    <button id = "pause-traceback" style = "display: none;"> pause traceback </button>
+                    <button id = "continue-traceback" style = "display: none;"> continue traceback </button>
+                </div>
+                <div class = "menu-button no-padding" id = "reset-container" style = "display: none;">
+                    <button id = "reset-traceback"> reset traceback </button>
                 </div>
             </div>
         </div>
         <div class = "mid-section"> 
             <div class = "title">
                 <label class = "title"> Cache Memory </label>
+                <label class = "sub-title" id = "cache-iteration-counter"> </label>
             </div>
             <div class = "cache-memory"> 
-                <table>
+                <table id = "cache-memory-table">
                     <tbody>
-                        <tr>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                        </tr>
-                        <tr>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                        </tr>
-                        <tr>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                        </tr>
-                        <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                        </tr>
+                        {% for i in range(4) %}
+                            <tr>
+                                {% for j in range(8) %}
+                                    <td id="cache-block-{{ i*8 + j }}"> </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
             <br><br>
             <div class = "title">
                 <label class = "title"> Cache Output </label>
+                <label class = "sub-title" id = "cache-test-case-type"> </label>
             </div>
-            <div class = "cache-output">
+            <div class = "cache-output" id = "cache-output-details">
                 <label class = "output"> 
                     memory access count: 
                     <label id = "memory-access-count"> </label> 
@@ -115,11 +90,26 @@
                 </label>
             </div>
         </div>
-        <!--
-            <div class = "right-section"> 
-                <h1> Access Log </h1>
-            </div
-        -->
+        <div class = "right-section"> 
+            <div id = "text-log-header">
+                <label class = "title"> Access Log </label>
+                <span class = "cache-hit"> Hit, </span>
+                <span class = "cache-empty"> Empty, </span>
+                <span class = "cache-lru"> LRU </span>
+            </div>
+            <div class = "text-log"> 
+                <div class = "text-log-content" id = "text-log-content">
+                </div>
+            </div>
+            <div id = "text-log-buttons">
+                <div class = "page-button">
+                    <button id = "previous-page-button"> previous page </button>
+                </div>
+                <div class = "page-button">
+                    <button id = "next-page-button"> next page </button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

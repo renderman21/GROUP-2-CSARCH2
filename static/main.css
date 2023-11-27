@@ -22,6 +22,10 @@ input:focus {
     outline: none;
 }
 
+br {
+    user-select: none;
+}
+
 div.main-container {
     width: 100%;
     display: flex;
@@ -41,7 +45,6 @@ div.menu {
     display: flex;
     flex-direction: column;
     justify-content: left;
-    box-shadow: 0px 0px 10px 5px #14283b;
 }
 
 div.title {
@@ -55,17 +58,25 @@ label.title {
     user-select: none;
 }
 
+label.sub-title {
+    margin: 0;
+    color: gray;
+    font-size: 1.2em;
+    user-select: none;
+}
+
 div.menu-button {
     border: solid 2px #FFFFFF;
     border-radius: 5px;
     background-color: #203c58;
-    font-size: 1em;
+    font-size: 0.9em;
     padding: 15px;
     width: 250px;
+    user-select: none;
 }
 
 div.menu-button:not(:first-of-type) {
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 div.menu-button:hover {
@@ -83,6 +94,7 @@ div.menu-button:not(:hover) {
 #memory-blocks-input {
     width: 247.5px;
     color: #FFFFFF;
+    font-size: 0.95em;
     font-family: 'Gotham Medium';
     background-color: transparent;
     border: none;
@@ -91,7 +103,8 @@ div.menu-button:not(:hover) {
 #test-case-input {
     width: 247.5px;
     border: 1px solid transparent;
-    color: #FFFFFF;
+    color: inherit;
+    font-size: inherit;
     font-family: 'Gotham Medium';
     outline: none;
     text-align: none;
@@ -99,29 +112,39 @@ div.menu-button:not(:hover) {
 }
 
 #test-case-input option {
-    border: none;
-    outline: none;
-    text-align: none;
+    color: white;
+    font-size: 0.95em;
     font-family: 'Gotham Medium';
     background-color: #203c58;
+}
+
+button {
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    font-family: 'Gotham Medium';
+    font-size: inherit;
+    color: inherit;
 }
 
 /***********************************************
              Cache Memory and Output       
 ***********************************************/
 div.mid-section {
-    width: 700px;
+    width: 723px;
     margin: 10px;
 }
 
 table {
-    width: 680px;
+    width: 720px;
     border-collapse: collapse;
     box-shadow: 0px 0px 5px 5px #14283b;
 }
 
 td {
     height: 85px;
+    width: 90px;
     border: 2px solid #FFFFFF;
     background-color: #203c58;
     color: white;
@@ -129,11 +152,18 @@ td {
     vertical-align: middle;
 }
 
+td.selected {
+    border-color: #78f4ff;
+    background-color: #14283b;
+    color: #78f4ff;
+    box-shadow: 0px 0px 2px 2px #3598dc;
+}
+
 div.cache-output {
     display: flex;
     flex-direction: column;
     height: 210px;
-    width: 650px;
+    width: 690px;
     border: solid 2px #FFFFFF;
     background-color: #203c58;
     font-size: 0.9em;
@@ -157,5 +187,71 @@ label.output label {
 div.right-section {
     width: 500px;
     margin: 10px;
-    background-color: green;
+}
+
+div.text-log {
+    margin-top: 10px;
+    min-height: 600px;
+    border: solid 2px #FFFFFF;
+    background-color: #203c58;
+    padding: 15px;
+    box-shadow: 0px 0px 10px 5px #14283b;
+}
+
+div.text-log-content {
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    font-size: 0.9em;
+}
+
+div.text-log-content span {
+    padding-bottom: 5px;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+span.cache-hit {
+    color: #44ea60;
+}
+
+span.cache-lru {
+    color: #ea4484;
+}
+
+span.cache-empty {
+    color: #cfea44;
+}
+
+#text-log-buttons {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+div.page-button {
+    border: solid 2px #FFFFFF;
+    border-radius: 5px;
+    background-color: #203c58;
+    margin: 10px 5px 0px 0px;
+    padding: 10px;
+}
+
+div.page-button button {
+    background-color: transparent;
+    font-size: 0.9em;
+    user-select: none;
+    text-align: center;
+}
+
+div.page-button:hover {
+    background-color: #14283b;
+    border-color: #78f4ff;
+    color: #78f4ff;
+    transition: 0.3s;
+    box-shadow: 0px 0px 2px 2px #3598dc;
+}
+
+div.page-button:not(:hover) {
+    transition: 1s;
 }
