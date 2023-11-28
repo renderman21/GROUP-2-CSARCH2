@@ -17,11 +17,13 @@ class CacheMemory:
     def __init__(self, numBlocks: int ) -> None:
         self.numBlocks = numBlocks
         self.cacheBlocks = [CacheBlock(number = i, data=-1, ctr=-1) for i in range(numBlocks)]
-        self.cacheTagLog = [] # List to track cache hit and misses
-        self.cacheTimeLog = [] # Access time for each step
-        self.cacheAccessLog = [] # List of updated cache block per iteration
-        self.cacheTextLog = [] # List of text log per iteration
-        self.iteration = 0
+        self.cacheTagLog = []       # List to track cache hit and misses
+        self.cacheTimeLog = []      # Access time for each step
+        self.cacheAccessLog = []    # List of updated cache block per iteration
+        self.cacheTextLog = []      # List of text log per iteration
+        self.iteration = 0          # Counter for current iteration
+        self.cacheAccessTime = 10
+        self.missPenalty = 1 + (self.cacheAccessTime*numBlocks) + 1 
 
     def accessMemory(self, sequence):
         for data in sequence:
@@ -32,8 +34,8 @@ class CacheMemory:
             if cacheBlock is not None: 
                 strPreviousBlock = f"Block {cacheBlock.number}, Ctr {cacheBlock.ctr}, Data {cacheBlock.data}"
                 cacheBlock.update( data, self.iteration )
-                self.cacheTagLog.append(1)
-                self.cacheTimeLog.append(10)
+                self.cacheTagLog.append(1)  # 1 = cache hit
+                self.cacheTimeLog.append(self.cacheAccessTime)
                 # message = "Cache Hit"
 
             else:
@@ -43,8 +45,8 @@ class CacheMemory:
                 if cacheBlock is not None:
                     strPreviousBlock = f"Block {cacheBlock.number}, Ctr {cacheBlock.ctr}, Data {cacheBlock.data}"
                     cacheBlock.update( data, self.iteration )
-                    self.cacheTagLog.append(2)
-                    self.cacheTimeLog.append(322)
+                    self.cacheTagLog.append(2) # 2 - empty cache
+                    self.cacheTimeLog.append(self.missPenalty)
                     # message = "Cache Miss (Empty)"
 
                 # 3. LRU replacement 
@@ -52,8 +54,8 @@ class CacheMemory:
                     cacheBlock = self.findLRUCacheBlock()
                     strPreviousBlock = f"Block {cacheBlock.number}, Ctr {cacheBlock.ctr}, Data {cacheBlock.data}"
                     cacheBlock.update( data, self.iteration )
-                    self.cacheTagLog.append(3)
-                    self.cacheTimeLog.append(322)
+                    self.cacheTagLog.append(3) # 3 - LRU replacement
+                    self.cacheTimeLog.append(self.missPenalty)
                     # message = "Cache Miss (LRU)"
 
             # print( f"Iteration[{self.iteration}]: {message} at Block {cacheBlock.number} of Ctr {cacheBlock.ctr} and Data {cacheBlock.data}" )
@@ -102,10 +104,9 @@ class CacheMemory:
     def getCacheMissRate(self):
         return self.getCacheMissCount()/self.iteration
     
-    # Average Memory Access Time
     def getAverageMAT(self):
-        hitTime = self.getCacheHitRate() * 10
-        missTime = self.getCacheMissRate() * 322
+        hitTime = self.getCacheHitRate() * self.cacheAccessTime
+        missTime = self.getCacheMissRate() * self.missPenalty
         return hitTime + missTime
     
     def getTotalMAT(self):

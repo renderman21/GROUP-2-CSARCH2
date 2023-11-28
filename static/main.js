@@ -12,6 +12,10 @@ const pauseTraceback = document.getElementById('pause-traceback');
 const continueTraceback = document.getElementById('continue-traceback');
 const resetTraceback = document.getElementById('reset-traceback');
 const resetContainer = document.getElementById('reset-container');
+const tracebackContainer = document.getElementById('traceback-container');
+const stateButtons = document.querySelectorAll('.state-button');
+const previousStateButton = document.getElementById('previous-state');
+const nextStateButton = document.getElementById('next-state');
 
 // - Titles and Sub-titles
 const cacheIterationCounter = document.getElementById('cache-iteration-counter');
@@ -70,10 +74,10 @@ async function fetchPost( URL, formData ) {
                 SIMULATION BUTTON           
 ***********************************************/
 startSimulation.addEventListener( "click", async function() {
-    resetCacheAnimation();
+    resetTracebackButtonStyles();
 
     if( memoryBlocksInput.value === '' ) {
-        playTraceback.setAttribute('disabled', 'disabled');
+        tracebackContainer.setAttribute('style', 'display: none;');
         return; // - Must input memory blocks number
     }
 
@@ -106,7 +110,7 @@ startSimulation.addEventListener( "click", async function() {
         updateCacheOutputDetails(cacheDetails);
         updateCacheMemory(finalSnapshot);
         updateCacheTestCaseType(testCaseInput.value);
-        playTraceback.removeAttribute('disabled');
+        tracebackContainer.setAttribute('style', 'display: visible;');
 
         // - Update text log
         currentPage = 1;
@@ -167,7 +171,7 @@ function startCacheAnimation() {
     updateAndDelay();
 }
 
-function resetCacheAnimation() {
+function resetTracebackButtonStyles() {
     isPaused = true;
     resetCacheBlocksStyle();
 
@@ -176,6 +180,9 @@ function resetCacheAnimation() {
     pauseTraceback.setAttribute('style', 'display: none;');
     continueTraceback.setAttribute('style', 'display: none;');
     resetContainer.setAttribute('style', 'display: none;');    
+    stateButtons.forEach(function(button) {
+        button.style.display = 'none';
+    });
 }
 
 // - Remove "selected" style from previous cacheblocks
@@ -222,6 +229,11 @@ playTraceback.addEventListener( "click", async function() {
     pauseTraceback.setAttribute('style', 'display: visible;');
     resetContainer.setAttribute('style', 'display: visible;');
 
+    // - Hide state buttons
+    stateButtons.forEach(function(button) {
+        button.style.display = 'none';
+    });
+
     startCacheAnimation();
 });
 
@@ -231,6 +243,11 @@ pauseTraceback.addEventListener( "click", async function() {
     // - Hide pause button and display pause button
     pauseTraceback.setAttribute('style', 'display: none;');
     continueTraceback.setAttribute('style', 'display: visible;');
+
+    // - Display state buttons
+    stateButtons.forEach(function(button) {
+        button.style.display = 'block';
+    });
 });
 
 continueTraceback.addEventListener( "click", async function() {
@@ -243,8 +260,33 @@ continueTraceback.addEventListener( "click", async function() {
     startCacheAnimation();
 });
 
+nextStateButton.addEventListener( "click", async function() {
+    if( currentIteration > maxIteration ) {
+        return;
+    }
+
+    isPaused = false;
+    await updateCacheBlock(currentIteration);
+    currentIteration++;
+    cacheIterationCounter.textContent = `(${currentIteration}/${maxIteration})`;
+});
+
+previousStateButton.addEventListener( "click", async function() {
+    if( currentIteration <= 0 ) {
+        return;
+    }
+
+    isPaused = false;
+    clearCacheMemory();
+    currentIteration--;
+    for( i = 0; i < currentIteration; i++ ) {
+        await updateCacheBlock(i);
+    }
+    cacheIterationCounter.textContent = `(${currentIteration}/${maxIteration})`;
+});
+
 resetTraceback.addEventListener( "click", async function() {
-    resetCacheAnimation();
+    resetTracebackButtonStyles();
 
     // - Restore to final snapshot
     updateCacheMemory(finalSnapshot);
