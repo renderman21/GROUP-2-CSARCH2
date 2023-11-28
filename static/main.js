@@ -205,7 +205,7 @@ async function updateCacheBlock( iteration ) {
     resetCacheBlocksStyle();
 
     // - Find the current cacheblock and add "selected" style
-    var currentBlock = iteration % 32;
+    var currentBlock = cacheAccessLog[iteration].number;
     var cacheBlockData = cacheAccessLog[iteration].data;
     var targetCacheBlockId = "cache-block-" + currentBlock;
     var cacheBlock = document.getElementById(targetCacheBlockId);
@@ -332,8 +332,14 @@ function updateTextLog() {
     // - Create spans to container
     for( var i = start; i < end; i++ ) {
         const span = document.createElement('span');
-        span.textContent = cacheTextLog[i].textLog;
-    
+        var textContent = cacheTextLog[i].textLog;
+        var splitLog = textContent.split(' → ', 2);
+
+        const firstHalf = splitLog[0];
+        const arrow = ' → ';
+        const secondHalf = splitLog[1];
+        
+        span.textContent = `\t${firstHalf} \t ${arrow} \t${secondHalf}`;
         switch( cacheTagLog[i] ) {
             case 1: span.classList.add('cache-hit'); break;
             case 2: span.classList.add('cache-empty'); break;
