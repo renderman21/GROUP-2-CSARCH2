@@ -54,24 +54,32 @@ In this iteration there were 64 misses and no hits
 
 ## For the third iteration
 
-![alt text](/analysis_image/sequence_iteration3-1.png)
+<div style = "display: flex;">
 
-![alt text](/analysis_image/sequence_iteration3-2.png)
 
-![alt text](/analysis_image/sequence_iteration3-3.png)
+<img src="/analysis_image/sequence_iteration3-1.png" width = "200" height = 200>
 
-## In this iteration there were 64 misses and no hits
+<img src="/analysis_image/sequence_iteration3-2.png" width = "200" height = 200>
+
+<img src="/analysis_image/sequence_iteration3-3.png" width = "200" height = 200>
+
+</div>
+
+In this iteration there were 64 misses and no hits
 
 Fourth and final iteration
 
-![alt text](/analysis_image/sequence_iteration4-1.png)
+<div style="display: flex;">
 
-![alt text](/analysis_image/sequence_iteration4-2.png)
+<img src="/analysis_image/sequence_iteration4-1.png" width = "200" height=200>
 
-![alt text](/analysis_image/sequence_iteration4-3.png)
+<img src="/analysis_image/sequence_iteration4-2.png" width = "200" height=200>
 
-![alt text](/analysis_image/sequence_iteration4-4.png)
+<img src="/analysis_image/sequence_iteration4-3.png" width = "200" height=200>
 
+<img src="/analysis_image/sequence_iteration4-4.png" width = "200" height=200>
+
+</div>
 In this iteration there were 64 misses and no hits
 
 ## Final snapshot
