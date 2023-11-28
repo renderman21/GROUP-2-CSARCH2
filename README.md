@@ -25,7 +25,7 @@ ${[0,1,2...63,0,1,2...,63,0,1,2...,63,0,1,2,..,63}]$
 
 We will analyze the sequence via iterations, this means the first ${0,1,2...63}$ is the first iteration, and then the second ${0,1,2...63}$, etc. 
 
-## For the first iteration. 
+## First iteration. 
 <div style="display: flex; ">
 
 <img src="/analysis_image/sequence_iteration1-1.png" width = "200" height="200">
@@ -37,7 +37,7 @@ We will analyze the sequence via iterations, this means the first ${0,1,2...63}$
 </div>
 In this iteration, there were 64 misses and no hits. 
 
-## For the second iteration 
+## Second iteration 
 
 <div style = "display: flex;"> 
 
@@ -52,7 +52,7 @@ In this iteration, there were 64 misses and no hits.
 </div> 
 In this iteration there were 64 misses and no hits
 
-## For the third iteration
+## Third iteration
 
 <div style = "display: flex;">
 
@@ -67,7 +67,7 @@ In this iteration there were 64 misses and no hits
 
 In this iteration there were 64 misses and no hits
 
-Fourth and final iteration
+## Fourth and final iteration
 
 <div style="display: flex;">
 
