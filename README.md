@@ -197,57 +197,73 @@ Then, the following images are the text log
 
 ## First iteration
 
-![alt text](/analysis_image/repeat_iteration1-1.png)
+<div style = "display:flex;">
 
-![alt text](/analysis_image/repeat_iteration1-2.png)
+<img src = "/analysis_image/repeat_iteration1-1.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration1-3.png)
+<img src = "/analysis_image/repeat_iteration1-2.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration1-4.png)
+<img src = "/analysis_image/repeat_iteration1-3.png" width = 200 height = 200>
 
+<img src = "/analysis_image/repeat_iteration1-4.png" width = 200 height = 200>
+
+</div>
 There are 64 misses and 30 hits, for this iteration. 
 
 ## Second iteration 
 
+<div style = "display:flex;">
 
-![alt text](/analysis_image/repeat_iteration2-1.png)
+<img src = "/analysis_image/repeat_iteration2-1.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration2-2.png)
+<img src = "/analysis_image/repeat_iteration2-2.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration2-3.png)
+<img src = "/analysis_image/repeat_iteration2-3.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration2-4.png)
+<img src = "/analysis_image/repeat_iteration2-4.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration2-5.png)
+<img src = "/analysis_image/repeat_iteration2-5.png" width = 200 height = 200>
 
+</div>
 There are 64 misses and 30 hits, for this iteration
 
 ## Third iteration 
 
-![alt text](/analysis_image/repeat_iteration3-1.png)
+<div style = "display: flex;>
 
-![alt text](/analysis_image/repeat_iteration3-2.png)
+<img src = "/analysis_image/repeat_iteration3-1.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration3-3.png)
+<img src = "/analysis_image/repeat_iteration3-2.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration3-4.png)
+<img src = "/analysis_image/repeat_iteration3-3.png" width = 200 height = 200>
+
+<img src = "/analysis_image/repeat_iteration3-4.png" width = 200 height = 200>
 
 ![alt text](/analysis_image/repeat_iteration3-5.png)
 
+</div >
 There are 64 misses and 30 hits for this iteration
 
 ## Fourth and final iteration 
 
-![alt text](/analysis_image/repeat_iteration4-1.png)
+<div style = "display: flex;">
 
-![alt text](/analysis_image/repeat_iteration4-2.png)
 
-![alt text](/analysis_image/repeat_iteration4-3.png)
+<img src = "/analysis_image/repeat_iteration4-1.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration4-4.png)
 
-![alt text](/analysis_image/repeat_iteration4-5.png)
+<img src = "/analysis_image/repeat_iteration4-2.png" width = 200 height = 200>
 
+
+<img src = "/analysis_image/repeat_iteration4-3.png" width = 200 height = 200>
+
+
+<img src = "/analysis_image/repeat_iteration4-4.png" width = 200 height = 200>
+
+
+<img src = "/analysis_image/repeat_iteration4-5.png" width = 200 height = 200>
+
+</div>
 There are 64 misses and 30 hits for this iteration.
 
 ## Final snapshot
