@@ -26,25 +26,30 @@ ${[0,1,2...63,0,1,2...,63,0,1,2...,63,0,1,2,..,63}]$
 We will analyze the sequence via iterations, this means the first ${0,1,2...63}$ is the first iteration, and then the second ${0,1,2...63}$, etc. 
 
 ## For the first iteration. 
+<div style="display: flex; ">
 
-![alt text](/analysis_image/sequence_iteration1-1.png)
+<img src="/analysis_image/sequence_iteration1-1.png" width = "200" height="200">
 
-![alt text](/analysis_image/sequence_iteration1-2.png)
+<img src= "/analysis_image/sequence_iteration1-2.png" width = "200" height = "200">
 
-![alt text](/analysis_image//sequence_iteration1-3.png)
+<img src="/analysis_image/sequence_iteration1-3.png" width = "200" height = "200">
 
+</div>
 In this iteration, there were 64 misses and no hits. 
 
 ## For the second iteration 
 
-![alt text](/analysis_image/sequence_iteration2-1.png)
+<div style = "display: flex;"> 
 
-![alt text](/analysis_image/sequence_iteration2-2.png)
+<img src="/analysis_image/sequence_iteration2-1.png" width = "200" height = 200>
 
-![alt text](/analysis_image/sequence_iteration2-3.png)
+<img src="/analysis_image/sequence_iteration2-2.png" width = "200" height = 200>
 
-![alt text](/analysis_image/sequence_iteration2-4.png)
+<img src="/analysis_image/sequence_iteration2-3.png" width = "200" height = 200>
 
+<img src="/analysis_image/sequence_iteration2-4.png" width = "200" height = 200>
+
+</div> 
 In this iteration there were 64 misses and no hits
 
 ## For the third iteration
