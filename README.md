@@ -126,7 +126,36 @@ Total Memory Access Time: 82432
 
 
 Test Case 2 (Random Sequence)
-// Perform analysis
+With this test case, we need to have up to `4n` cache blocks, and have a random sequence
+${a,b,c,d...z}$
+
+Just like from the previous test case, we will have `n=32` and use the program that we have made for this analysis. 
+
+![alt text](/analysis_image/Random_input.png)
+
+In this test case, we have selected Random and the inputted number is 32. 
+
+Following the rules for a random sequence, $128$ random numbers will be inputted within the range of $0$ to $128$.  
+
+Since the sequence is random, we will analyze the sequence without any iterations, rather we will analyze the pages of the access log.
+
+### First Page
+![alt text](/analysis_image/Random_1.png)
+
+### Second Page
+![alt text](/analysis_image/Random_2.png)
+
+### Third Page
+![alt text](/analysis_image/Random_3.png)
+
+### Fourth Page
+![alt text](/analysis_image/Random_4.png)
+
+### Fifth Page
+![alt text](/analysis_image/Random_5.png)
+
+### Sixth Page
+![alt text](/analysis_image/Random_6.png)
 
 Test Case 3 (Mid-Repeat Blocks)
 // Perform analysis
