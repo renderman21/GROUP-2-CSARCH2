@@ -18,7 +18,7 @@ class CacheMemory:
         self.numBlocks = numBlocks
         self.cacheBlocks = [CacheBlock(number = i, data=-1, ctr=-1) for i in range(numBlocks)]
         self.cacheTagLog = [] # List to track cache hit and misses
-        self.cacheTimeLog = [] # Access time for each step (?)
+        self.cacheTimeLog = [] # Access time for each step
         self.cacheAccessLog = [] # List of updated cache block per iteration
         self.cacheTextLog = [] # List of text log per iteration
         self.iteration = 0
@@ -33,6 +33,7 @@ class CacheMemory:
                 strPreviousBlock = f"Block {cacheBlock.number}, Ctr {cacheBlock.ctr}, Data {cacheBlock.data}"
                 cacheBlock.update( data, self.iteration )
                 self.cacheTagLog.append(1)
+                self.cacheTimeLog.append(10)
                 # message = "Cache Hit"
 
             else:
@@ -43,6 +44,7 @@ class CacheMemory:
                     strPreviousBlock = f"Block {cacheBlock.number}, Ctr {cacheBlock.ctr}, Data {cacheBlock.data}"
                     cacheBlock.update( data, self.iteration )
                     self.cacheTagLog.append(2)
+                    self.cacheTimeLog.append(322)
                     # message = "Cache Miss (Empty)"
 
                 # 3. LRU replacement 
@@ -51,6 +53,7 @@ class CacheMemory:
                     strPreviousBlock = f"Block {cacheBlock.number}, Ctr {cacheBlock.ctr}, Data {cacheBlock.data}"
                     cacheBlock.update( data, self.iteration )
                     self.cacheTagLog.append(3)
+                    self.cacheTimeLog.append(322)
                     # message = "Cache Miss (LRU)"
 
             # print( f"Iteration[{self.iteration}]: {message} at Block {cacheBlock.number} of Ctr {cacheBlock.ctr} and Data {cacheBlock.data}" )
@@ -101,8 +104,12 @@ class CacheMemory:
     
     # Average Memory Access Time
     def getAverageMAT(self):
-        self.getCacheHitRate() + self.getCacheMissRate()
-        # unfinished
+        hitTime = self.getCacheHitRate() * 10
+        missTime = self.getCacheMissRate() * 322
+        return hitTime + missTime
+    
+    def getTotalMAT(self):
+        return sum(self.cacheTimeLog)
 
     def getFinalSnapshot(self):
         finalSnapshot = []

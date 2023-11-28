@@ -20,11 +20,13 @@ const cacheTestCaseType = document.getElementById('cache-test-case-type');
 
 // - Cache Output Details
 const memoryAccessCountLabel = document.getElementById('memory-access-count');
+const memoryAccessCount = document.getElementById('memory-access-count');
 const cacheHitCountLabel = document.getElementById('cache-hit-count');
 const cacheMissCountLabel = document.getElementById('cache-miss-count');
 const cacheHitRateLabel = document.getElementById('cache-hit-rate');
 const cacheMissRateLabel = document.getElementById('cache-miss-rate');
-const memoryAccessCount = document.getElementById('memory-access-count');
+const averageAccessTime = document.getElementById('average-access-time');
+const totalAccessTime = document.getElementById('total-access-time');
 
 // - Text Log
 const textLogContent = document.getElementById('text-log-content');
@@ -108,7 +110,7 @@ startSimulation.addEventListener( "click", async function() {
 
         // - Update text log
         currentPage = 1;
-        maxPage = Math.ceil(maxIteration / spansPerPage);
+        maxPage = Math.ceil(maxIteration/spansPerPage);
         updateTextLog();
 
     } catch( error ) {
@@ -121,8 +123,10 @@ function updateCacheOutputDetails( cacheDetails ) {
     memoryAccessCountLabel.textContent = cacheDetails[0];
     cacheHitCountLabel.textContent = cacheDetails[1];
     cacheMissCountLabel.textContent = cacheDetails[2];
-    cacheHitRateLabel.textContent = cacheDetails[3];
-    cacheMissRateLabel.textContent = cacheDetails[4];
+    cacheHitRateLabel.textContent = (cacheDetails[3]*100).toFixed(2) + "%";
+    cacheMissRateLabel.textContent = (cacheDetails[4]*100).toFixed(2) + "%";
+    averageAccessTime.textContent = cacheDetails[5] + "ns";
+    totalAccessTime.textContent = cacheDetails[6] + "ns";
 }
 
 function updateCacheMemory( snapshot ) {
