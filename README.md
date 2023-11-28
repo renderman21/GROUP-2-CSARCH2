@@ -239,7 +239,7 @@ There are 64 misses and 30 hits, for this iteration
 
 <img src = "/analysis_image/repeat_iteration3-4.png" width = 200 height = 200>
 
-![alt text](/analysis_image/repeat_iteration3-5.png)
+<img src = "/analysis_image/repeat_iteration3-5.png" width = 200 height = 200>
 
 </div >
 There are 64 misses and 30 hits for this iteration
