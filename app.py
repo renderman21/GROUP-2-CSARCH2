@@ -51,9 +51,9 @@ def simulate():
         cacheHitCount = cacheMemory.getCacheHitCount()
         cacheMissCount = cacheMemory.getCacheMissCount()
         cacheHitRate = cacheMemory.getCacheHitRate()
-        cacheMissRate = cacheMemory.getCacheHitRate()
-        # averageMAT =
-        # totalMAT = 
+        cacheMissRate = cacheMemory.getCacheMissRate()
+        averageMAT = cacheMemory.getAverageMAT()
+        totalMAT = cacheMemory.getTotalMAT()
 
         # For cache memory retracing
         cacheAccessLog = cacheMemory.cacheAccessLog
@@ -69,11 +69,13 @@ def simulate():
             cacheMissCount,
             cacheHitRate,
             cacheMissRate,
+            averageMAT,
+            totalMAT
         ]
 
         # Convert cacheAccessLog, finalSnapshot, cacheTextLog to JSON
         jsonAccessLog = [{ "number": log.number, "data": log.data } for log in cacheAccessLog ]
-        jsonSnapshot = [{ "number": log.number, "data": log.data} for log in finalSnapshot ]
+        jsonSnapshot = [{ "number": log.number, "data": log.data } for log in finalSnapshot ]
         jsonTextLog = [{ "textLog": log } for log in cacheTextLog ]
 
         response = {

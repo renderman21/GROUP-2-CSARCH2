@@ -26,10 +26,18 @@
                 <div class = "menu-button no-padding">
                     <button id = "start-simulation"> start simulation </button>
                 </div>
-                <div class = "menu-button no-padding">
-                    <button id = "play-traceback" disabled> play traceback </button>
+                <div class = "menu-button no-padding" id = "traceback-container" style = "display: none;">
+                    <button id = "play-traceback"> play traceback </button>
                     <button id = "pause-traceback" style = "display: none;"> pause traceback </button>
                     <button id = "continue-traceback" style = "display: none;"> continue traceback </button>
+                </div>
+                <div id = "state-container">
+                    <div class = "state-button" style = "display: none;">
+                        <button id = "previous-state"> previous state </button>
+                    </div>
+                    <div class = "state-button" style = "display: none;">
+                        <button id = "next-state"> next state </button>
+                    </div>
                 </div>
                 <div class = "menu-button no-padding" id = "reset-container" style = "display: none;">
                     <button id = "reset-traceback"> reset traceback </button>
@@ -92,7 +100,7 @@
         </div>
         <div class = "right-section"> 
             <div id = "text-log-header">
-                <label class = "title"> Access Log </label>
+                <label class = "title"> Text Log </label>
                 <span class = "cache-hit"> Hit, </span>
                 <span class = "cache-empty"> Empty, </span>
                 <span class = "cache-lru"> LRU </span>
