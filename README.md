@@ -23,8 +23,44 @@ We will analyze the sequence via iterations, this means the first ${0,1,2...63}$
 For the first iteration. 
 
 ![alt text](/analysis_image/sequence_iteration1-1.png)
+
 ![alt text](/analysis_image/sequence_iteration1-2.png)
+
 ![alt text](/analysis_image//sequence_iteration1-3.png)
+
+For the second iteration 
+
+![alt text](/analysis_image/sequence_iteration2-1.png)
+
+![alt text](/analysis_image/sequence_iteration2-2.png)
+
+![alt text](/analysis_image/sequence_iteration2-3.png)
+
+![alt text](/analysis_image/sequence_iteration2-4.png)
+
+For the third iteration
+
+![alt text](/analysis_image/sequence_iteration3-1.png)
+
+![alt text](/analysis_image/sequence_iteration3-2.png)
+
+![alt text](/analysis_image/sequence_iteration3-3.png)
+
+Fourth and final iteration
+
+![alt text](/analysis_image/sequence_iteration4-1.png)
+
+![alt text](/analysis_image/sequence_iteration4-2.png)
+
+![alt text](/analysis_image/sequence_iteration4-3.png)
+
+![alt text](/analysis_image/sequence_iteration4-4.png)
+
+Final snapshot
+![alt text](/analysis_image/sequential_final.png)
+
+*Read the order from the top left to the right*
+
 
 In the first 32 access of the memory, the cache memory is empty, therefore we place first all the sequences 32 times. However, since the cache memory is full, `Data 32` has been placed at `Block 0` due to the replacement algorithm *LRU* or *Least Recently Used*. Because *2n* is bigger than the the 32 cache blocks, there are no repeated values, meaning there will be misses than hits, and the values are replaced.
 
