@@ -176,7 +176,75 @@ Total Memory Access Time: 82432ns
 
 
 # Test Case 2 (Random Sequence)
-// Perform analysis
+With this test sequence, we need to have up to $4n$ cache blocks.
+
+Just like from the previous test case, we will have $n=32$ with a random sequence of 
+
+${a,b,c,d...z}$
+
+As for the rules for this random pattern, we will have one iteration where $128$ random numbers will be inputted within the range of $0$ to $128$.
+
+Since the sequence is random, we will analyze the data by dividing the $128$ random numbers into 32 inputs, resulting in 4 iterations.
+
+We have selected Random and input our $n$.
+
+![alt text](/analysis_image/Random_input.png)
+
+The following images are the text log  
+
+### First Iteration
+
+<div style = "display:flex;">
+
+<img src = "/analysis_image/random_1-1.png" width = 200 height = 200>
+
+<img src = "/analysis_image/random_1-2.png" width = 200 height = 200>
+
+</div>
+First iteration contained 2 hits and 0 misses
+
+## Second Page
+
+<div style = "display:flex;">
+
+<img src = "/analysis_image/random_2-1.png" width = 200 height = 200>
+
+<img src = "/analysis_image/random_2-2.png" width = 200 height = 200>
+
+</div>
+Second iteration contained 6 hits and 24 misses
+
+### Third Page
+
+<div style = "display:flex;">
+
+<img src = "/analysis_image/random_3-1.png" width = 200 height = 200>
+
+<img src = "/analysis_image/random_3-2.png" width = 200 height = 200>
+
+</div>
+Third iteration contained 9 hits and 23 misses
+
+### Fourth Page
+
+<div style = "display:flex;">
+
+<img src = "/analysis_image/random_4-1.png" width = 200 height = 200>
+
+<img src = "/analysis_image/random_4-2.png" width = 200 height = 200>
+
+<img src = "/analysis_image/random_4-3.png" width = 200 height = 200>
+
+</div>
+Fourth iteration contained 6 hits and 26 misses
+
+## Final snapshot
+
+![alt text](/analysis_image/random_final.png)
+
+*Read the order from the top left to the right*
+
+In total, there are 105 misses and 23 hits made.
 
 # Test Case 3 (Mid-Repeat Blocks)
 With this test sequence, this starts at block 0, after which it will start at 1 again and continue up to $2n-1$ times. This sequence will be repeated four times. 
