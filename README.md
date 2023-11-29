@@ -246,6 +246,62 @@ Fourth iteration contained 6 hits and 26 misses
 
 In total, there are 105 misses and 23 hits made.
 
+## Summary and Computation
+
+For the first iteration, since all cache blocks are empty, they must be filled up. However, due to the randomness of the sequence, there was a chance for a number to be inputted twice. As observed, we encountered two hits, unlike the sequential test case where the sequence follows a specific order, leading to the filling of empty cache blocks.
+
+Employing the identical formula established in the initial test case, we can determine the memory access count, cache hit count, cache miss count, cache hit rate, cache miss rate, average memory access time, and total memory access time.
+
+We've already obtained the cache hit count and cache miss count.
+
+Now, it's simply a matter of acquiring the memory access count, cache hit rate, cache miss rate, average memory access time, and total memory access time.
+
+All formulas will be referred to the first test case
+
+### Memory access count: 
+
+$memoryaccesscount = 23 + 105$
+
+$memoryaccesscount = 128$
+
+### Cache hit rate
+
+$hitrate = 23/128$
+
+$hitrate = 0.1796875$ or 17.97%
+
+## Cache miss rate
+
+$missrate = 105/128$
+
+$missrate = 0.8203125$ or 82.03%
+
+## Average memory access time 
+
+$T_a = 0.1796875(10) + (1-0.1796875) * 322$
+
+$T_a = 265.9375ns$
+
+## Total memory access time 
+$total = 265.9375 * 128$
+
+$total = 34040ns$
+
+
+In summary we have the following results
+
+```
+
+Memory access count: 128
+Cache hit count: 23
+Cache miss count: 105
+Cache hit rate: 17.97%
+Cache miss rate: 82.03%
+Average memory access time: 265.9375s
+Total memory access time: 34040ns
+
+```
+
 # Test Case 3 (Mid-Repeat Blocks)
 With this test sequence, this starts at block 0, after which it will start at 1 again and continue up to $2n-1$ times. This sequence will be repeated four times. 
 
@@ -376,12 +432,12 @@ $missrate = 0.68085106383$ or 68.09%
 
 $T_a = 0.31914893617(10) + (1-0.31914893617) * 322$
 
-$T_a = 222.4255319$
+$T_a = 222.4255319ns$
 
 ## Total memory access time 
 $total = 222.4255319 * 83632$
 
-$total = 83632$
+$total = 83632ns$
 
 
 In summary we have the following results
