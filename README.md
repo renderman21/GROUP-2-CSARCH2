@@ -203,7 +203,7 @@ The following images are the text log
 </div>
 First iteration contained 2 hits and 0 misses
 
-## Second Page
+## Second iteration
 
 <div style = "display:flex;">
 
@@ -214,7 +214,7 @@ First iteration contained 2 hits and 0 misses
 </div>
 Second iteration contained 6 hits and 24 misses
 
-### Third Page
+### Third iteration
 
 <div style = "display:flex;">
 
@@ -225,7 +225,7 @@ Second iteration contained 6 hits and 24 misses
 </div>
 Third iteration contained 9 hits and 23 misses
 
-### Fourth Page
+### Fourth and final iteration
 
 <div style = "display:flex;">
 
