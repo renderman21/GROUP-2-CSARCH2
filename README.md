@@ -131,30 +131,31 @@ $total = T_a * memoryaccesscount$
 
 Now we have defined the formulas, let's compute
 
-## Memory access count
+### Memory access count
+
 $memoryaccesscount = 256 + 0$
 
 $memoryaccesscount = 256$
 
-## Cache hit rate 
+### Cache hit rate 
 
 $hitrate = 0 / 256$
 
 $hitrate = 0$
 
-## Cache miss rate
+### Cache miss rate
 
 $missrate = 256/256$
 
 $missrate = 1$
 
-## Average memory access time
+### Average memory access time
 
 $T_a = 0(10) + (1-0) * 322$
 
 $T_a = 322ns$
 
-## Total memory access time
+### Total memory access time
 
 $total = 322 * 256$
 
@@ -270,19 +271,19 @@ $hitrate = 23/128$
 
 $hitrate = 0.1796875$ or 17.97%
 
-## Cache miss rate
+### Cache miss rate
 
 $missrate = 105/128$
 
 $missrate = 0.8203125$ or 82.03%
 
-## Average memory access time 
+### Average memory access time 
 
 $T_a = 0.1796875(10) + (1-0.1796875) * 322$
 
 $T_a = 265.9375ns$
 
-## Total memory access time 
+### Total memory access time 
 $total = 265.9375 * 128$
 
 $total = 34040ns$
@@ -422,19 +423,19 @@ $hitrate = 120/376$
 
 $hitrate = 0.31914893617$ or 31.91%
 
-## Cache miss rate
+### Cache miss rate
 
 $missrate = 256/376$
 
 $missrate = 0.68085106383$ or 68.09%
 
-## Average memory access time 
+### Average memory access time 
 
 $T_a = 0.31914893617(10) + (1-0.31914893617) * 322$
 
 $T_a = 222.4255319ns$
 
-## Total memory access time 
+### Total memory access time 
 $total = 222.4255319 * 83632$
 
 $total = 83632ns$
