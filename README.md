@@ -314,7 +314,7 @@ ${0,1,2,...,31,1,2,3,...,63}$
 
 This pattern is repeated four times for the sequence. 
 
-We will now analyze the sequence by looking the duplicate last number of the $n-1$ and its $2n-1$
+We will now analyze the sequence by looking the last number of the $n-1$ and its $2n-1$
 
 First we input our $n$ and select into mid-repeat
 
