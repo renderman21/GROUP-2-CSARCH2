@@ -1,9 +1,11 @@
 # CSARC2 (GROUP 2)
 
-This is a project where we perform FA+LRU
+This is a project where we perform FA+LRU. This is shown through a website.
 
 # Link
-insert link
+
+[Link to site](https://csarch2-simulation-project-s11-grp2.onrender.com)
+
 # Video Demo
 [Web Application Demo](https://youtu.be/cVd5TAABDpU)
 
